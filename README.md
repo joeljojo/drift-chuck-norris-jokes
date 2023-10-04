@@ -13,7 +13,7 @@ The application fetches and displays:
 With node and npm installed, you can run this project locally by cloning [this](https://github.com/joeljojo/drift-chuck-norris-jokes.git) GitHub repository to your local machine. 
 
 
-After cloning the repository, through your terminal, navigate to the root of the project folder, that is `chuck-norris-jokes-app`. 
+After cloning the repository, through your terminal, navigate to the root of the project folder, that is `drift-chuck-norris-jokes`. 
 
 Now install the dependencies by using `npm install` command.
 
