@@ -1,8 +1,23 @@
-# React + Vite
+# Chuck Norris Jokes APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Click to see [Live Demo](https://drift-chuck-norris-jokes.netlify.app/)
 
-Currently, two official plugins are available:
+This is a react application that fetches and displays Chuck Norris jokes from the [Chuck Norris API](https://api.chucknorris.io/). 
+The application fetches and displays:
+- A random Chuck Norris joke
+- A random joke from a specific category
+- A list of available joke categories
+- Jokes sought by keyword
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to set Up the environment
+With node and npm installed, you can run this project locally by cloning [this](https://github.com/joeljojo/drift-chuck-norris-jokes.git) GitHub repository to your local machine. 
+
+
+After cloning the repository, through your terminal, navigate to the root of the project folder, that is `chuck-norris-jokes-app`. 
+
+Now install the dependencies by using `npm install` command.
+
+After installing the required dependencies, with the current project path, use `npm run dev` command to run your project locally.
+
+If you don’t have node installed, look out on how to install [NODE](https://nodejs.org/en/download) and how to set a [VITE](https://vitejs.dev/guide/) project from scratch.
+
