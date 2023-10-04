@@ -12,6 +12,7 @@ const ChuckNorrisJoke = () => {
   const getRandomJoke = async () => {
     const randomJoke = await chuckNorrisApi.fetchRandomJoke();
     setJoke(randomJoke.value);
+    setCategory("");
   };
 
   const getJokeByCategory = async () => {
@@ -25,6 +26,7 @@ const ChuckNorrisJoke = () => {
     if (searchQuery) {
       const searchResult = await chuckNorrisApi.searchJokes(searchQuery);
       setJoke(searchResult.value);
+      setCategory("");
     }
   };
 
