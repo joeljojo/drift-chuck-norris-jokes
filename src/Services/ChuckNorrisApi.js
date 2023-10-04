@@ -42,7 +42,8 @@ async function searchJokes(query) {
       "An error occurred while fetching jokes. Please try again later."
     );
   }
-  const data = response.json();
+  const data = await response.json();
+  console.log(data);
   if (data.total > 0) {
     // Randomly select one of the search results
     const randomIndex = Math.floor(Math.random() * data.result.length);

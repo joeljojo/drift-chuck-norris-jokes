@@ -22,7 +22,7 @@ const JokeCategory = ({ category, setCategory, getJokeByCategory }) => {
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Select category</option>
-        {categories.map((cat) => (
+        {categories?.map((cat) => (
           <option key={cat} value={cat}>
             {cat}
           </option>

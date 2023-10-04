@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import JokeDisplay from "./JokeDisplay";
 import JokeCategory from "./JokeCategory";
 import chuckNorrisApi from "../Services/ChuckNorrisApi";
+import JokeSearch from "./JokeSearch";
 
 const ChuckNorrisJoke = () => {
   const [joke, setJoke] = useState("");
   const [category, setCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const getRandomJoke = async () => {
     const randomJoke = await chuckNorrisApi.fetchRandomJoke();
@@ -19,6 +21,13 @@ const ChuckNorrisJoke = () => {
     }
   };
 
+  const handleSearch = async () => {
+    if (searchQuery) {
+      const searchResult = await chuckNorrisApi.searchJokes(searchQuery);
+      setJoke(searchResult.value);
+    }
+  };
+
   useEffect(() => {
     getRandomJoke();
   }, []);
@@ -26,6 +35,11 @@ const ChuckNorrisJoke = () => {
   return (
     <div>
       <h1>Chuck Norris Jokes</h1>
+      <JokeSearch
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        handleSearch={handleSearch}
+      />
       <JokeCategory
         category={category}
         setCategory={setCategory}
