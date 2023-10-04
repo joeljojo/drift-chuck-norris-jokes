@@ -1,7 +1,12 @@
 import "./App.css";
+import ChuckNorrisJoke from "./Components/ChuckNorrisJoke";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ChuckNorrisJoke />
+    </>
+  );
 }
 
 export default App;
