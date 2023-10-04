@@ -35,18 +35,20 @@ const ChuckNorrisJoke = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Chuck Norris Jokes</h1>
-      <JokeSearch
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-      />
-      <JokeCategory
-        category={category}
-        setCategory={setCategory}
-        getJokeByCategory={getJokeByCategory}
-      />
+      <div className="category-search-container">
+        <JokeSearch
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          handleSearch={handleSearch}
+        />
+        <JokeCategory
+          category={category}
+          setCategory={setCategory}
+          getJokeByCategory={getJokeByCategory}
+        />
+      </div>
       <JokeDisplay joke={joke} />
       <button onClick={getRandomJoke}>Get Ramdom Joke</button>
     </div>

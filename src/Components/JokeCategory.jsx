@@ -13,22 +13,24 @@ const JokeCategory = ({ category, setCategory, getJokeByCategory }) => {
     getCategories();
   }, []);
   return (
-    <div>
-      <label htmlFor="categories">Select category</label>
-      <select
-        name="categories"
-        id="categories"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-        <option value="">Select category</option>
-        {categories?.map((cat) => (
-          <option key={cat} value={cat}>
-            {cat}
-          </option>
-        ))}
-      </select>
-      <button onClick={getJokeByCategory}>Get Joke</button>
+    <div className="joke-categories">
+      <label htmlFor="categories">Search joke by category</label>
+      <div className="select-category">
+        <select
+          name="categories"
+          id="categories"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="">Select category</option>
+          {categories?.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+        <button onClick={getJokeByCategory}>Get Joke</button>
+      </div>
     </div>
   );
 };

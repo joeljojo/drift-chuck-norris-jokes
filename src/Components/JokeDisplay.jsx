@@ -1,7 +1,7 @@
 const JokeDisplay = ({ joke }) => {
   return (
-    <div>
-      <p>{joke}</p>
+    <div className="joke-card">
+      <p className="joke-text">{joke}</p>
     </div>
   );
 };

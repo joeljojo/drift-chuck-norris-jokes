@@ -43,7 +43,6 @@ async function searchJokes(query) {
     );
   }
   const data = await response.json();
-  console.log(data);
   if (data.total > 0) {
     // Randomly select one of the search results
     const randomIndex = Math.floor(Math.random() * data.result.length);

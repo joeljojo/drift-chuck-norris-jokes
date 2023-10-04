@@ -1,6 +1,6 @@
 const JokeSearch = ({ searchQuery, setSearchQuery, handleSearch }) => {
   return (
-    <div>
+    <div className="joke-search">
       <input
         type="text"
         name="search"
