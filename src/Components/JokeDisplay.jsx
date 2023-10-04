@@ -1,7 +1,13 @@
-const JokeDisplay = ({ joke }) => {
+const JokeDisplay = ({ joke, error, loading }) => {
   return (
     <div className="joke-card">
-      <p className="joke-text">{joke}</p>
+      {loading ? (
+        <p className="joke-text">Loading...</p>
+      ) : error ? (
+        <p className="error-message">{error?.message}</p>
+      ) : (
+        <p className="joke-text">{joke}</p>
+      )}
     </div>
   );
 };

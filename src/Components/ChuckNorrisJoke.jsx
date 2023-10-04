@@ -8,25 +8,56 @@ const ChuckNorrisJoke = () => {
   const [joke, setJoke] = useState("");
   const [category, setCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const getRandomJoke = async () => {
-    const randomJoke = await chuckNorrisApi.fetchRandomJoke();
-    setJoke(randomJoke.value);
-    setCategory("");
+    try {
+      setLoading(true);
+      const randomJoke = await chuckNorrisApi.fetchRandomJoke();
+      setJoke(randomJoke.value);
+      setCategory("");
+      setSearchQuery("");
+      setError(null); // Clears previous error
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const getJokeByCategory = async () => {
-    if (category) {
-      const jokeInCategory = await chuckNorrisApi.fetchJokeByCategory(category);
-      setJoke(jokeInCategory.value);
+    try {
+      setLoading(true);
+      setError(null);
+      if (category) {
+        const jokeInCategory = await chuckNorrisApi.fetchJokeByCategory(
+          category
+        );
+        setJoke(jokeInCategory.value);
+        setSearchQuery("");
+      }
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleSearch = async () => {
-    if (searchQuery) {
-      const searchResult = await chuckNorrisApi.searchJokes(searchQuery);
-      setJoke(searchResult.value);
-      setCategory("");
+    try {
+      setLoading(true);
+
+      setError(null);
+      if (searchQuery) {
+        const searchResult = await chuckNorrisApi.searchJokes(searchQuery);
+        setJoke(searchResult.value);
+        setCategory("");
+      }
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +80,7 @@ const ChuckNorrisJoke = () => {
           getJokeByCategory={getJokeByCategory}
         />
       </div>
-      <JokeDisplay joke={joke} />
+      <JokeDisplay joke={joke} error={error} loading={loading} />
       <button onClick={getRandomJoke}>Get Ramdom Joke</button>
     </div>
   );

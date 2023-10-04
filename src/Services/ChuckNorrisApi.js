@@ -3,9 +3,8 @@ const API_BASE_URL = "https://api.chucknorris.io";
 async function fetchRandomJoke() {
   const response = await fetch(`${API_BASE_URL}/jokes/random`);
   if (!response.ok) {
-    throw new Error(
-      "An error occurred while fetching jokes. Please try again later."
-    );
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
   const data = await response.json();
   return data;
@@ -16,9 +15,8 @@ async function fetchJokeByCategory(category) {
     `${API_BASE_URL}/jokes/random?category=${category}`
   );
   if (!response.ok) {
-    throw new Error(
-      "An error occurred while fetching jokes. Please try again later."
-    );
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
   const data = await response.json();
   return data;
@@ -27,9 +25,8 @@ async function fetchJokeByCategory(category) {
 async function fetchCategories() {
   const response = await fetch(`${API_BASE_URL}/jokes/categories`);
   if (!response.ok) {
-    throw new Error(
-      "An error occurred while fetching jokes. Please try again later."
-    );
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
   const data = await response.json();
   return data;
@@ -38,9 +35,8 @@ async function fetchCategories() {
 async function searchJokes(query) {
   const response = await fetch(`${API_BASE_URL}/jokes/search?query=${query}`);
   if (!response.ok) {
-    throw new Error(
-      "An error occurred while fetching jokes. Please try again later."
-    );
+    const errorData = await response.json();
+    throw new Error(errorData.message);
   }
   const data = await response.json();
   if (data.total > 0) {
