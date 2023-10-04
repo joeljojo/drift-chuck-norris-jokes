@@ -14,11 +14,11 @@ const ChuckNorrisJoke = () => {
   const getRandomJoke = async () => {
     try {
       setLoading(true);
+      setError(null);
       const randomJoke = await chuckNorrisApi.fetchRandomJoke();
       setJoke(randomJoke.value);
       setCategory("");
       setSearchQuery("");
-      setError(null); // Clears previous error
     } catch (error) {
       setError(error);
     } finally {
@@ -47,7 +47,6 @@ const ChuckNorrisJoke = () => {
   const handleSearch = async () => {
     try {
       setLoading(true);
-
       setError(null);
       if (searchQuery) {
         const searchResult = await chuckNorrisApi.searchJokes(searchQuery);
@@ -81,7 +80,7 @@ const ChuckNorrisJoke = () => {
         />
       </div>
       <JokeDisplay joke={joke} error={error} loading={loading} />
-      <button onClick={getRandomJoke}>Get Ramdom Joke</button>
+      <button onClick={getRandomJoke}>Get Random Joke</button>
     </div>
   );
 };
